@@ -42,7 +42,7 @@ public class Client {
 	@ManyToMany
 	@NotNull(message = "{error.commons.required}")
 	@JoinColumn(nullable = false)
-	 private Users user;
+	 private User user;
 	
 	public Client() {
 		//

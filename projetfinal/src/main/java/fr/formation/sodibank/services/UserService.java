@@ -3,10 +3,10 @@ package fr.formation.sodibank.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import fr.formation.sodibank.entities.User;
 import fr.formation.sodibank.repositories.IUserJpaRepository;
 
 @Service

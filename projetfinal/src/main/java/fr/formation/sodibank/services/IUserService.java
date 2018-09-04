@@ -1,6 +1,6 @@
 package fr.formation.sodibank.services;
 
-import org.springframework.security.core.userdetails.User;
+import fr.formation.sodibank.entities.User;
 
 public interface IUserService {
 

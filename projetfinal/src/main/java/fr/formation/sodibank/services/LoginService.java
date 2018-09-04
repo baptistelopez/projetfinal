@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
 import fr.formation.Principal;
+import fr.formation.sodibank.entities.User;
 import fr.formation.sodibank.repositories.IUserJpaRepository;
 
 @Service

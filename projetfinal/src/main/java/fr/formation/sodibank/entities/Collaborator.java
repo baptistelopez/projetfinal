@@ -33,7 +33,7 @@ public class Collaborator {
 	private String firstname;
 	 
 	 @Column(length = 50, nullable = false)
-	 private Users user;
+	 private User user;
 		 
 	
 	

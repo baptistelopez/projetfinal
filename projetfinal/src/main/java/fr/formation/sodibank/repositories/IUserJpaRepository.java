@@ -1,7 +1,8 @@
 package fr.formation.sodibank.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.User;
+
+import fr.formation.sodibank.entities.User;
 
 public interface IUserJpaRepository extends JpaRepository<User, Long> {
 

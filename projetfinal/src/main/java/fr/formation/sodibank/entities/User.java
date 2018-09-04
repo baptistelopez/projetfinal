@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Entity
-public class Users implements Serializable {
+public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1800900843909976847L;
 
@@ -44,7 +44,7 @@ public class Users implements Serializable {
     @Column(length = 1, nullable = false)
     public boolean enabled = true;
 
-    public Users() {
+    public User() {
 	//
     }
 
@@ -117,10 +117,10 @@ public class Users implements Serializable {
 	if (this == obj) {
 	    return true;
 	}
-	if (!(obj instanceof Users)) {
+	if (!(obj instanceof User)) {
 	    return false;
 	}
-	Users other = (Users) obj;
+	User other = (User) obj;
 	return username.equals(other.username);
     }
 
