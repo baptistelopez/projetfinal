@@ -23,26 +23,26 @@ public class Collaborator {
     private Long id;
 	
 	
-	@Column
+	@Column(length = 50, nullable = false)
 	private String matricule;
 	
-	@Column
+	 @Column(length = 50, nullable = false)
 	private String lastname;
 	
-	@Column
+	 @Column(length = 50, nullable = false)
 	private String firstname;
+	 
+	 @Column(length = 50, nullable = false)
+	 private Users user;
+		 
 	
-	@Column
-	private String email;
 	
 	
-	
-	public Collaborator(String matricule,String lastname,String firstname, String email) {
+	public Collaborator(String matricule,String lastname,String firstname) {
 		
 		setMatricule(matricule);
 		setLastname(lastname);
 		setLastname(firstname);
-		setEmail(email);
 		
 	}
 
@@ -70,19 +70,19 @@ public class Collaborator {
 		this.firstname = firstname;
 	}
 
-	public String getEmail() {
-		return email;
+	public Long getId() {
+		return id;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((matricule == null) ? 0 : matricule.hashCode());
 		return result;
 	}
@@ -96,10 +96,10 @@ public class Collaborator {
 		if (!(obj instanceof Collaborator))
 			return false;
 		Collaborator other = (Collaborator) obj;
-		if (email == null) {
-			if (other.email != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!id.equals(other.id))
 			return false;
 		if (matricule == null) {
 			if (other.matricule != null)
@@ -111,12 +111,14 @@ public class Collaborator {
 
 	@Override
 	public String toString() {
-		return "Collaborator [matricule=" + matricule + ", lastname=" + lastname + ", firstname=" + firstname
-				+ ", email=" + email + ", getMatricule()=" + getMatricule() + ", getLastname()=" + getLastname()
-				+ ", getFirstname()=" + getFirstname() + ", getEmail()=" + getEmail() + ", hashCode()=" + hashCode()
+		return "Collaborator [id=" + id + ", matricule=" + matricule + ", lastname=" + lastname + ", firstname="
+				+ firstname + ", getMatricule()=" + getMatricule() + ", getLastname()=" + getLastname()
+				+ ", getFirstname()=" + getFirstname() + ", getId()=" + getId() + ", hashCode()=" + hashCode()
 				+ ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
 	}
+
 	
+
 	
 	
 	

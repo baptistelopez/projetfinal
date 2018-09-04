@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 public class Country {
 	
@@ -15,10 +16,12 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column
+	@Column(nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private String codeIso;
 	
 	@ManyToOne
+	@NotNull(message = "{error.commons.required}")
 	@JoinColumn(nullable = false)
 	private Raiting raiting;
 	

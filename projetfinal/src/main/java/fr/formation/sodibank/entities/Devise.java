@@ -4,9 +4,12 @@
 package fr.formation.sodibank.entities;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Administrateur
@@ -20,11 +23,14 @@ public class Devise {
     private Long id;
 	
 	
-	@Column
+	@Column(nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private String codeIso;
 	
 	
-	@Column
+	@Column(nullable = false)
+	@NotNull(message = "{error.commons.required}")
+	@Enumerated(EnumType.STRING)
 	private TypeMoney money;
 	
 	
