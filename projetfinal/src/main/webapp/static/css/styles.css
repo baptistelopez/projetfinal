@@ -1,0 +1,28 @@
+/*****NAV************/
+.navbar-inverse{
+	background-color: #7FC6BC!important;
+}
+
+.couleur, .navbar-inverse .navbar-brand{
+	color: #0E57E0!important;
+	font-weight: 600;
+}
+.rouge{
+	color: red;
+	font-weight: 600;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: white! important;
+	font-weight: 600;
+}
+
+.navbar-inverse .navbar-nav>.open>a{
+	color: white! important;
+	background-color: #7FC6BC!important;
+	font-weight: 600;
+}
+
+.navbar-inverse .navbar-nav>.active>a{
+	background-color:  #0E57E0!important;
+}
