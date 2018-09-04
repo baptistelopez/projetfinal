@@ -31,6 +31,10 @@ public class Collaborator {
 	
 	 @Column(length = 50, nullable = false)
 	private String firstname;
+	 
+	 @Column(length = 50, nullable = false)
+	 private Users user;
+		 
 	
 	
 	

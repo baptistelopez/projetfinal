@@ -6,7 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Client {
@@ -17,20 +19,30 @@ public class Client {
     private Long id;
 	
 	@Column(length = 50, nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private String code;
 	
 	@Column(length = 50, nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private String lastname;
 	
 	@Column(nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private String legalForm;
 	
 	@Column(length = 50, nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private Long accountNumber;
 
 	@ManyToOne
 	@JoinColumn(nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private Raiting raiting;
+	
+	@ManyToMany
+	@NotNull(message = "{error.commons.required}")
+	@JoinColumn(nullable = false)
+	 private Users user;
 	
 	public Client() {
 		//

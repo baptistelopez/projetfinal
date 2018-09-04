@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Administrateur
@@ -23,10 +24,12 @@ public class Devise {
 	
 	
 	@Column(nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	private String codeIso;
 	
 	
 	@Column(nullable = false)
+	@NotNull(message = "{error.commons.required}")
 	@Enumerated(EnumType.STRING)
 	private TypeMoney money;
 	
