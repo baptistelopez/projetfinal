@@ -3,7 +3,6 @@
 	<name>projetfinal</name>
 	<comment></comment>
 	<projects>
-		<project>Servers</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
