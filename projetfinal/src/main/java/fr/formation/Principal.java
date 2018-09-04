@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import fr.formation.lamarmite.entities.User;
+import fr.formation.sodibank.entities.User;
 
 public class Principal implements UserDetails {
 
