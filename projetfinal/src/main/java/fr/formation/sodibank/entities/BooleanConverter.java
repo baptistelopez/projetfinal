@@ -1,4 +1,4 @@
-package fr.formation.lamarmite.entities;
+package fr.formation.sodibank.entities;
 
 import javax.persistence.*;
 
