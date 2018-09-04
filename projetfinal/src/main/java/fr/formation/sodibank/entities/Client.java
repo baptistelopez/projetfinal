@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,20 +16,20 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column
+	@Column(length = 50, nullable = false)
 	private String code;
 	
-	@Column
+	@Column(length = 50, nullable = false)
 	private String lastname;
 	
-	@Column
+	@Column(nullable = false)
 	private String legalForm;
 	
-	@Column
+	@Column(length = 50, nullable = false)
 	private Long accountNumber;
-	
-	@Column
+
 	@ManyToOne
+	@JoinColumn(nullable = false)
 	private Raiting raiting;
 	
 	public Client() {

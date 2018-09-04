@@ -4,6 +4,8 @@
 package fr.formation.sodibank.entities;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,11 +22,12 @@ public class Devise {
     private Long id;
 	
 	
-	@Column
+	@Column(nullable = false)
 	private String codeIso;
 	
 	
-	@Column
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
 	private TypeMoney money;
 	
 	
