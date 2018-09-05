@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -24,13 +25,8 @@ public class Raiting {
 	
 	@Column(nullable = false)
 	@NotNull(message = "{error.commons.required}")
-	@ManyToOne
 	private Double risk;
 	
-	@OneToMany
-	@NotNull(message = "{error.commons.required}")
-	@JoinColumn(nullable = false)
-	private Devise devise;
 	
 	
 	public Raiting() {
@@ -48,21 +44,13 @@ public class Raiting {
 	}
 
 
-	public Devise getDevise() {
-		return devise;
-	}
-
-
-	public void setDevise(Devise devise) {
-		this.devise = devise;
-	}
+	
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((devise == null) ? 0 : devise.hashCode());
 		result = prime * result + ((risk == null) ? 0 : risk.hashCode());
 		return result;
 	}
@@ -77,11 +65,7 @@ public class Raiting {
 		if (!(obj instanceof Raiting))
 			return false;
 		Raiting other = (Raiting) obj;
-		if (devise == null) {
-			if (other.devise != null)
-				return false;
-		} else if (!devise.equals(other.devise))
-			return false;
+		
 		if (risk == null) {
 			if (other.risk != null)
 				return false;
@@ -93,8 +77,8 @@ public class Raiting {
 
 	@Override
 	public String toString() {
-		return "Raiting [code=" + code + ", risk=" + risk + ", devise=" + devise + ", getRisk()=" + getRisk()
-				+ ", getDevise()=" + getDevise() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
+		return "Raiting [code=" + code + ", risk=" + risk + ",  getRisk()=" + getRisk()
+				+ ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
 				+ ", toString()=" + super.toString() + "]";
 	}
 	

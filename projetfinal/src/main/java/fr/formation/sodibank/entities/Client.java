@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -39,7 +40,7 @@ public class Client {
 	@NotNull(message = "{error.commons.required}")
 	private Raiting raiting;
 	
-	@ManyToMany
+	@OneToOne
 	@NotNull(message = "{error.commons.required}")
 	@JoinColumn(nullable = false)
 	 private User user;
