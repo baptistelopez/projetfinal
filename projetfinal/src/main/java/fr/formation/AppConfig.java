@@ -11,5 +11,5 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("fr.formation.sodibank.repositories")
 @EnableTransactionManagement
 public class AppConfig {
-    // Empty class
+    // Empty clas
 }

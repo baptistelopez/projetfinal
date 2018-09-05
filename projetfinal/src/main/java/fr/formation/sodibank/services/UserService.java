@@ -37,7 +37,7 @@ public class UserService implements IUserService {
 	Long id = user.getId();
 	String email = user.getEmail();
 	if (null == id) { // create
-	    return !userJpaRepository.existsByEmailIgnoreCase(email);
+	    return !userJpaRepository.existsByEmailIgnoreCase(email); //
 	}
 	return !userJpaRepository.existsByEmailIgnoreCaseAndIdNot(email, id); // update
     }

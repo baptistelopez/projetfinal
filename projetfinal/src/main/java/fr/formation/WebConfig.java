@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
      * Configuration des ressources statiques afin d'éviter les filtres inutiles
      * sur les requêtes.
      * <p>
-     * Classiquement tous les fichiers JS, CSS et images.
+     * Classiquement tous les fichiers JS, CSS et image.
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

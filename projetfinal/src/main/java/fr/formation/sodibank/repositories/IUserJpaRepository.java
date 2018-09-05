@@ -11,4 +11,6 @@ public interface IUserJpaRepository extends JpaRepository<User, Long> {
     public boolean existsByEmailIgnoreCase(String email);
 
     public boolean existsByEmailIgnoreCaseAndIdNot(String email, Long id);
+    //
+    
 }

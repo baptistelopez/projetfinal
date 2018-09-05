@@ -45,7 +45,7 @@ public class User implements Serializable {
     public boolean enabled = true;
 
     public User() {
-	//
+	////
     }
 
     public Long getId() {
