@@ -23,30 +23,7 @@
 </head>
 <body>
 
-	<nav class ="navbar navbar-inverse">
-	  <div class ="container-fluid">
-	    <div class ="navbar-header">
-	      <a class="navbar-brand" href="#"><strong class="coleur">Sodi</strong><trong class="rouge">Bank</trong></a>
-	    </div>
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Loanee</a></li>
-	      <li><a href="#"></a></li>
-	      <li><a href="#"></a></li>
-	    </ul>
-	    <ul class="nav navbar-nav navbar-right">
-	     <li class="dropdown">
-	        <a class="dropdown-toggle glyphicon glyphicon-log-in" data-toggle="dropdown" href="#"> Login
-	        <span class="caret"></span></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="<c:url value="/home/welcome"/>" >Admin</a></li>
-	          <li><a href="<c:url value="/courses/toCreate" />" >Banquier</a></li>
-	          <li><a href="<c:url value="/courses/toCreate" />" >Client</a></li>
-	           <li><a href="<c:url value="/courses/toCreate" />" >Product Owner</a></li>
-	        </ul>
-	      </li>
-	    </ul>
-	  </div>
-</nav>
+	<c:import url="/WEB-INF/jspf/header.jsp" />
 	<h2>Bienvenue sur Loanee!</h2> 
 </body>
 </html>

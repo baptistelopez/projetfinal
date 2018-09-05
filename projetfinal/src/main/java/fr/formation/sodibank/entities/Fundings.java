@@ -12,9 +12,13 @@ public class Fundings implements Serializable {
 	
 	private static final long serialVersionUID = 1800900843909976847L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(columnDefinition = "TEXT", length = 10, nullable = false, unique = true)
+   
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id;
+	
+	
+	@Column(length = 10, nullable = false, unique = true)
     private String ref;
 
     @NotNull(message = "{error.commons.required}")
@@ -116,6 +120,15 @@ public class Fundings implements Serializable {
 
 	public void setRequestDate(Date requestDate) {
 		this.requestDate = requestDate;
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public float getCustomerRating() {

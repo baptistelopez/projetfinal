@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/home")
-public class HomeController{
-	
-	@GetMapping("/welcome")
-	public String welcome(Model model) {
-		return "login";
+public class HomeController extends BaseController{
+
+	@GetMapping("/admin")
+	public String admin(Model model) {
+		return "pageAccueil";
 	}
-	
 }

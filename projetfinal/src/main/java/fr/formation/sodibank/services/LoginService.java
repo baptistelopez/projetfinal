@@ -20,7 +20,7 @@ public class LoginService implements ILoginService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-	User user = userJpaRepo.findByEmail(username);
+	User user = userJpaRepo.findByUsername(username);
 	if (null == user) {
 	    throw new UsernameNotFoundException(
 		    "No user found with username: " + username);

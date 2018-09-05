@@ -33,13 +33,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public boolean validateEmail(User user) {
+    public boolean validateUsername(User user) {
 	Long id = user.getId();
-	String email = user.getEmail();
+	String email = user.getUsername();
 	if (null == id) { // create
-	    return !userJpaRepository.existsByEmailIgnoreCase(email); //
+	    return !userJpaRepository.existsByUsernameIgnoreCase(email); //
 	}
-	return !userJpaRepository.existsByEmailIgnoreCaseAndIdNot(email, id); // update
+	return !userJpaRepository.existsByUsernameIgnoreCaseAndIdNot(email, id); // update
     }
 
     @Override

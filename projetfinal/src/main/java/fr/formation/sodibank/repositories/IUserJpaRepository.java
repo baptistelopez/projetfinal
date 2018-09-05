@@ -6,11 +6,11 @@ import fr.formation.sodibank.entities.User;
 
 public interface IUserJpaRepository extends JpaRepository<User, Long> {
 
-    public User findByEmail(String username);
+    public User findByUsername(String username);
 
-    public boolean existsByEmailIgnoreCase(String email);
+    public boolean existsByUsernameIgnoreCase(String username);
 
-    public boolean existsByEmailIgnoreCaseAndIdNot(String email, Long id);
+    public boolean existsByUsernameIgnoreCaseAndIdNot(String username, Long id);
     //
     
 }
