@@ -4,6 +4,7 @@
 package fr.formation.sodibank.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
  * @author Administrateur
  *
  */
+@Entity
 public class Devise {
 
 	

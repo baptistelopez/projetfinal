@@ -38,7 +38,7 @@
 	        <a class="dropdown-toggle glyphicon glyphicon-log-in" data-toggle="dropdown" href="#"> Login
 	        <span class="caret"></span></a>
 	        <ul class="dropdown-menu">
-	          <li><a href="<c:url value="/home" />" >Admin</a></li>
+	          <li><a href="<c:url value="/home/welcome"/>" >Admin</a></li>
 	          <li><a href="<c:url value="/courses/toCreate" />" >Banquier</a></li>
 	          <li><a href="<c:url value="/courses/toCreate" />" >Client</a></li>
 	           <li><a href="<c:url value="/courses/toCreate" />" >Product Owner</a></li>

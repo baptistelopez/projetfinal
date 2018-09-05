@@ -16,17 +16,19 @@
 
 	<div class="container">
 		  <h2>Authentification</h2>
-		  <form action="/action_page.php">
+		  
+		 
+		 <form>
 		    <div class="form-group">
 		      <label for="email">Email:</label>
-		      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+		      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"><spring:message code="commons.nav.home" />
 		    </div>
 		    <div class="form-group">
 		      <label for="pwd">Password:</label>
 		      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
 		    </div>
 		    <div class="checkbox">
-		      <label><input type="checkbox" name="remember"> Rester connecter</label>
+		      <label><input type="checkbox" name="remember"> Remember Me</label>
 		    </div>
 		    <button type="submit" class="btn btn-default">Connexion</button>
 		  </form>
