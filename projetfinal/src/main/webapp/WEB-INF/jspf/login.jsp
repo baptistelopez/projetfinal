@@ -1,31 +1,20 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="${pageContext.response.locale.language}">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Connexion</title>
-<link href="<c:url value="/static/css/styles.css" />" rel="stylesheet">
-<link rel="stylesheet" href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> "/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<title><spring:message code="login.title" /></title>
+<%-- <c:import url="WEB-INF/jspf/commonsNav.jsp" /> --%>
+<%-- <c:import url="./commonsNav.jsp" /> --%>
 </head>
 <body>
-
-	<c:import url="header.jsp" />
-
+<%-- 	<c:import url="./headerNav.jsp" /> --%>
 	<div class="container-fluid">
 		<section>
 			<h1 class="text-primary">
-				<spring:message code="login.title" />
+				<spring:message code="commons.nav.home" />
 			</h1>
 			<form method="POST" action="<c:url value="/login" />">
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -37,10 +26,13 @@
 					<label for="password"><spring:message code="login.password" /></label>
 					<input type="password" name="password" value="" maxlength="12" autocomplete="off" class="form-control">
 				</div>
-				<button type="submit" class="btn btn-primary mb-3"><a href=""><spring:message code="login.submit" /></a></button>
-				<span><a href="<c:url value="/users/toCreate" />"><spring:message code="login.users.toCreate" /></a></span>
+				<button type="submit" class="btn btn-primary mb-3"><spring:message code="commons.forms.submit" /></button>
+				<span><a href="<c:url value="/users/toCreate" />"><spring:message code="commons.forms.submit" /></a></span>
+				<button type="reset" class="btn btn-primary mb-3"><spring:message code="commons.forms.reset" /></button>
+				<span><a href="<c:url value="/users/toCreate" />"><spring:message code="commons.forms.reset" /></a></span>
 			</form>
 		</section>
 	</div>
+<%-- 	<c:import url="/footerNav.jsp" /> --%>
 </body>
 </html>

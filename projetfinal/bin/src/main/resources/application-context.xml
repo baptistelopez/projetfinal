@@ -28,9 +28,9 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="persistenceUnitName"
-			value="lamarmitePersistenceUnit" />
+			value="projetfinalPersistenceUnit" />
 		<property name="packagesToScan"
-			value="fr.formation" />
+			value="fr.formation.sodibank.entities" />
 		<property name="jpaVendorAdapter">
 			<bean
 				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
