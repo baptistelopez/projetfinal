@@ -1,5 +1,7 @@
 package fr.formation.sodibank.services;
 
+import java.util.List;
+
 import fr.formation.sodibank.entities.Fundings;
 
 /**
@@ -11,4 +13,8 @@ public interface IFundingsService {
     //
 
     public Fundings findById(Long id);
+
+    public boolean validateRef(Fundings fundings);
+
+    public List<Fundings> findAll();
 }

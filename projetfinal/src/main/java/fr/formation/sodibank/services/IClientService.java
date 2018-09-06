@@ -3,6 +3,8 @@
  */
 package fr.formation.sodibank.services;
 
+import java.util.List;
+
 import fr.formation.sodibank.entities.Client;
 
 /**
@@ -15,4 +17,9 @@ public interface IClientService {
     public void save(Client client);
 
     public boolean validateCode(Client client);
+
+    /**
+     * @return
+     */
+    public List<Client> findAll();
 }

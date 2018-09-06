@@ -1,7 +1,7 @@
 package fr.formation.sodibank.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,7 +16,7 @@ public class Fundings implements Serializable {
     private Long id;
 
     @Column(length = 10, nullable = false, unique = true)
-    private String ref;
+    private String reference;
 
     @NotNull(message = "{error.commons.required}")
     @Column(length = 10, nullable = false, unique = true)
@@ -32,236 +32,189 @@ public class Fundings implements Serializable {
 
     @NotNull(message = "{error.commons.required}")
     @Column(nullable = false, unique = true)
-    private Date actualBeginDateWished;
-
-    @NotNull(message = "{error.commons.required}")
-    @Column(nullable = false, unique = true)
-    private Date requestDate;
-
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 7, nullable = false, unique = true)
-    private float customerRating;
-
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 7, nullable = false, unique = true)
-    private float customersCountryRating;
-
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 5, nullable = false, unique = true)
-    private float riskRatio;
-
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 7, nullable = false, unique = true)
-    private Float returnRatio;
+    private LocalDate fundingDateWished;
 
     @NotNull(message = "{error.commons.required}")
     @ManyToOne
     @JoinColumn(nullable = false)
     private FundingsType fundingsType;
 
+    @NotNull(message = "{error.commons.required}")
+    @Column(nullable = false, unique = true)
+    private LocalDate requestDate;
+
+    @NotNull(message = "{error.commons.required}")
+    @Column(nullable = false)
+    private Float fundingPerformance;
+
+    @NotNull(message = "{error.commons.required}")
+    @Column(nullable = false)
+    private String customerCode;
+
     public Fundings() {
 	//
     }
 
-    public String getRef() {
-	return ref;
-    }
-
-    public void setRef(String ref) {
-	this.ref = ref;
-    }
-
-    public float getAmount() {
-	return amount;
-    }
-
-    public void setAmount(float amount) {
-	this.amount = amount;
-    }
-
-    public String getCurrency() {
-	return currency;
-    }
-
-    public void setCurrency(String currency) {
-	this.currency = currency;
-    }
-
-    public int getDuration() {
-	return duration;
-    }
-
-    public void setDuration(int duration) {
-	this.duration = duration;
-    }
-
-    public Date getActualBeginDateWished() {
-	return actualBeginDateWished;
-    }
-
-    public void setActualBeginDateWished(Date actualBeginDateWished) {
-	this.actualBeginDateWished = actualBeginDateWished;
-    }
-
-    public FundingsType getFundingsType() {
-	return fundingsType;
-    }
-
-    public void setFundingType(FundingsType fundingsType) {
-	this.fundingsType = fundingsType;
-    }
-
-    public Date getRequestDate() {
-	return requestDate;
-    }
-
-    public void setRequestDate(Date requestDate) {
-	this.requestDate = requestDate;
-    }
-
+    /**
+     * @return the id
+     */
     public Long getId() {
 	return id;
     }
 
+    /**
+     * @param id
+     *            the id to set
+     */
     public void setId(Long id) {
 	this.id = id;
     }
 
-    public float getCustomerRating() {
-	return customerRating;
+    /**
+     * @return the reference
+     */
+    public String getReference() {
+	return reference;
     }
 
-    public void setCustomerRating(float customerRating) {
-	this.customerRating = customerRating;
+    /**
+     * @param reference
+     *            the reference to set
+     */
+    public void setReference(String reference) {
+	this.reference = reference;
     }
 
-    public float getCustomersCountryRating() {
-	return customersCountryRating;
+    /**
+     * @return the amount
+     */
+    public Float getAmount() {
+	return amount;
     }
 
-    public void setCustomersCountryRating(float customersCountryRating) {
-	this.customersCountryRating = customersCountryRating;
+    /**
+     * @param amount
+     *            the amount to set
+     */
+    public void setAmount(Float amount) {
+	this.amount = amount;
     }
 
-    public float getRiskRatio() {
-	return riskRatio;
+    /**
+     * @return the currency
+     */
+    public String getCurrency() {
+	return currency;
     }
 
-    public void setRiskRatio(float riskRatio) {
-	this.riskRatio = riskRatio;
+    /**
+     * @param currency
+     *            the currency to set
+     */
+    public void setCurrency(String currency) {
+	this.currency = currency;
     }
 
-    public float getReturnRatio() {
-	return returnRatio;
+    /**
+     * @return the duration
+     */
+    public int getDuration() {
+	return duration;
     }
 
-    public void setReturnRatio(float returnRatio) {
-	this.returnRatio = returnRatio;
+    /**
+     * @param duration
+     *            the duration to set
+     */
+    public void setDuration(int duration) {
+	this.duration = duration;
     }
 
+    /**
+     * @return the fundingDateWished
+     */
+    public LocalDate getFundingDateWished() {
+	return fundingDateWished;
+    }
+
+    /**
+     * @param fundingDateWished
+     *            the fundingDateWished to set
+     */
+    public void setFundingDateWished(LocalDate fundingDateWished) {
+	this.fundingDateWished = fundingDateWished;
+    }
+
+    /**
+     * @return the fundingsType
+     */
+    public FundingsType getFundingsType() {
+	return fundingsType;
+    }
+
+    /**
+     * @param fundingsType
+     *            the fundingsType to set
+     */
+    public void setFundingsType(FundingsType fundingsType) {
+	this.fundingsType = fundingsType;
+    }
+
+    /**
+     * @return the requestDate
+     */
+    public LocalDate getRequestDate() {
+	return requestDate;
+    }
+
+    /**
+     * @param requestDate
+     *            the requestDate to set
+     */
+    public void setRequestDate(LocalDate requestDate) {
+	this.requestDate = requestDate;
+    }
+
+    /**
+     * @return the fundingPerformance
+     */
+    public Float getFundingPerformance() {
+	return fundingPerformance;
+    }
+
+    /**
+     * @param fundingPerformance
+     *            the fundingPerformance to set
+     */
+    public void setFundingPerformance(Float fundingPerformance) {
+	this.fundingPerformance = fundingPerformance;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
     public static long getSerialversionuid() {
 	return serialVersionUID;
     }
 
-    @Override
-    public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	result = prime * result + (actualBeginDateWished == null ? 0
-		: actualBeginDateWished.hashCode());
-	result = prime * result + Float.floatToIntBits(amount);
-	result = prime * result + (currency == null ? 0 : currency.hashCode());
-	result = prime * result + Float.floatToIntBits(customerRating);
-	result = prime * result + Float.floatToIntBits(customersCountryRating);
-	result = prime * result + duration;
-	result = prime * result
-		+ (fundingsType == null ? 0 : fundingsType.hashCode());
-	result = prime * result + (ref == null ? 0 : ref.hashCode());
-	result = prime * result
-		+ (requestDate == null ? 0 : requestDate.hashCode());
-	result = prime * result + Float.floatToIntBits(returnRatio);
-	result = prime * result + Float.floatToIntBits(riskRatio);
-	return result;
+    public String getCustomerCode() {
+	return customerCode;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (obj == null) {
-	    return false;
-	}
-	if (!(obj instanceof Fundings)) {
-	    return false;
-	}
-	Fundings other = (Fundings) obj;
-	if (actualBeginDateWished == null) {
-	    if (other.actualBeginDateWished != null) {
-		return false;
-	    }
-	} else if (!actualBeginDateWished.equals(other.actualBeginDateWished)) {
-	    return false;
-	}
-	if (Float.floatToIntBits(amount) != Float
-		.floatToIntBits(other.amount)) {
-	    return false;
-	}
-	if (currency == null) {
-	    if (other.currency != null) {
-		return false;
-	    }
-	} else if (!currency.equals(other.currency)) {
-	    return false;
-	}
-	if (Float.floatToIntBits(customerRating) != Float
-		.floatToIntBits(other.customerRating)) {
-	    return false;
-	}
-	if (Float.floatToIntBits(customersCountryRating) != Float
-		.floatToIntBits(other.customersCountryRating)) {
-	    return false;
-	}
-	if (duration != other.duration) {
-	    return false;
-	}
-	if (fundingsType != other.fundingsType) {
-	    return false;
-	}
-	if (ref == null) {
-	    if (other.ref != null) {
-		return false;
-	    }
-	} else if (!ref.equals(other.ref)) {
-	    return false;
-	}
-	if (requestDate == null) {
-	    if (other.requestDate != null) {
-		return false;
-	    }
-	} else if (!requestDate.equals(other.requestDate)) {
-	    return false;
-	}
-	if (Float.floatToIntBits(returnRatio) != Float
-		.floatToIntBits(other.returnRatio)) {
-	    return false;
-	}
-	if (Float.floatToIntBits(riskRatio) != Float
-		.floatToIntBits(other.riskRatio)) {
-	    return false;
-	}
-	return true;
+    public void setCustomerCode(String customerCode) {
+	this.customerCode = customerCode;
     }
 
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
-	return "Fundings {ref=" + ref + ", amount=" + amount + ", currency="
-		+ currency + ", duration=" + duration
-		+ ", actualBeginDateWished=" + actualBeginDateWished
-		+ ", fundingType=" + fundingsType + ", requestDate="
-		+ requestDate + ", customerRating=" + customerRating
-		+ ", customersCountryRating=" + customersCountryRating
-		+ ", riskRatio=" + riskRatio + ", returnRatio=" + returnRatio
-		+ "}";
+	return "Fundings [id=" + id + ", reference=" + reference + ", amount="
+		+ amount + ", currency=" + currency + ", duration=" + duration
+		+ ", fundingDateWished=" + fundingDateWished + ", fundingsType="
+		+ fundingsType + ", requestDate=" + requestDate
+		+ ", fundingPerformance=" + fundingPerformance + "]";
     }
 }
