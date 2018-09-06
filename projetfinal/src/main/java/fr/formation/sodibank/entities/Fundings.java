@@ -1,7 +1,7 @@
 package fr.formation.sodibank.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -32,7 +32,7 @@ public class Fundings implements Serializable {
 
     @NotNull(message = "{error.commons.required}")
     @Column(nullable = false, unique = true)
-    private Date fundingDateWished;
+    private LocalDate fundingDateWished;
 
     @NotNull(message = "{error.commons.required}")
     @ManyToOne
@@ -41,7 +41,7 @@ public class Fundings implements Serializable {
 
     @NotNull(message = "{error.commons.required}")
     @Column(nullable = false, unique = true)
-    private Date requestDate;
+    private LocalDate requestDate;
 
     @NotNull(message = "{error.commons.required}")
     @Column(nullable = false)
@@ -129,7 +129,7 @@ public class Fundings implements Serializable {
     /**
      * @return the fundingDateWished
      */
-    public Date getFundingDateWished() {
+    public LocalDate getFundingDateWished() {
 	return fundingDateWished;
     }
 
@@ -137,7 +137,7 @@ public class Fundings implements Serializable {
      * @param fundingDateWished
      *            the fundingDateWished to set
      */
-    public void setFundingDateWished(Date fundingDateWished) {
+    public void setFundingDateWished(LocalDate fundingDateWished) {
 	this.fundingDateWished = fundingDateWished;
     }
 
@@ -159,7 +159,7 @@ public class Fundings implements Serializable {
     /**
      * @return the requestDate
      */
-    public Date getRequestDate() {
+    public LocalDate getRequestDate() {
 	return requestDate;
     }
 
@@ -167,7 +167,7 @@ public class Fundings implements Serializable {
      * @param requestDate
      *            the requestDate to set
      */
-    public void setRequestDate(Date requestDate) {
+    public void setRequestDate(LocalDate requestDate) {
 	this.requestDate = requestDate;
     }
 
