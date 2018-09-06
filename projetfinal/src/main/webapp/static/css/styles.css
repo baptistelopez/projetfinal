@@ -26,3 +26,7 @@
 .navbar-inverse .navbar-nav>.active>a{
 	background-color:  #0E57E0!important;
 }
+
+section {
+	margin: 10px;
+}

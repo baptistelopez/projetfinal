@@ -13,7 +13,7 @@ import fr.formation.sodibank.services.*;
 @RequestMapping("/financement")
 public class FundingsController {
     //
-
+/*
     private final IFundingsService fundingsService;
 
     private final IFundingTypeService fundingTypeService;
@@ -23,5 +23,5 @@ public class FundingsController {
 	    IFundingTypeService fundingTypeService) {
 	this.fundingsService = fundingsService;
 	this.fundingTypeService = fundingTypeService;
-    }
+    }*/
 }
