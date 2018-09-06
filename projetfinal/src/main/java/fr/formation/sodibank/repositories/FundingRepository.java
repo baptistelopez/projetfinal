@@ -14,14 +14,15 @@ public class FundingRepository extends BaseRepository
     @Override
     public List<fundingsDTO> findAllAsDTO(AppLanguage lang) {
 	StringBuilder queryBuilder = new StringBuilder(
-		"select new fr.formation.sodibank.dto.fundingsDTO(f.id, f.reference, f.amount, f.currency, f.duration, f.fundingDateWished, "
-			+ "f.fundingsType, f.requestDate, f.fundingPerformance");
+		"select new fr.formation.sodibank.dto.fundingsDTO(f.id,  f.amount,f.requestDate");
 	String nameCol = "frenchName";
 	if (lang.isEnglish()) {
 	    nameCol = "englishName";
 	}
 	queryBuilder.append(nameCol);
-	queryBuilder.append("as fundingsName)from Fundings f ");
+	queryBuilder.append("from Fundings inner join Client");
+	queryBuilder.append("where Fundings.customerCode = Client.code");
+	queryBuilder.append("order by Fundings.requestDate");
 	Query query = em.createQuery(queryBuilder.toString());
 	return query.getResultList();
     }

@@ -53,9 +53,6 @@ public class ClientService implements IClientService {
 	model.addAttribute("Client", clients);
     }
 
-    /**
-     * @return
-     */
     @Override
     public List<Client> findAll() {
 	return clientJpaRepository.findAll();

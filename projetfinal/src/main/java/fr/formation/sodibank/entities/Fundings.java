@@ -47,6 +47,10 @@ public class Fundings implements Serializable {
     @Column(nullable = false)
     private Float fundingPerformance;
 
+    @NotNull(message = "{error.commons.required}")
+    @Column(nullable = false)
+    private String customerCode;
+
     public Fundings() {
 	//
     }
@@ -191,6 +195,14 @@ public class Fundings implements Serializable {
      */
     public static long getSerialversionuid() {
 	return serialVersionUID;
+    }
+
+    public String getCustomerCode() {
+	return customerCode;
+    }
+
+    public void setCustomerCode(String customerCode) {
+	this.customerCode = customerCode;
     }
 
     /*
