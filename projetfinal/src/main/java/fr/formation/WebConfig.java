@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.*;
 import org.springframework.web.servlet.view.*;
 
-@Import(value = { AppConfig.class})
+@Import(value = { AppConfig.class, SecurityConfig.class })
 @EnableWebMvc
 @Configuration
 @ComponentScan("fr.formation.sodibank.controllers")
