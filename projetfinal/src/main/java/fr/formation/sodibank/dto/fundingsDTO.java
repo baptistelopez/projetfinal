@@ -1,54 +1,44 @@
-package fr.formation.sodibank.entities;
+package fr.formation.sodibank.dto;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import fr.formation.sodibank.entities.FundingsType;
 
-@Entity
-public class Fundings implements Serializable {
+public class fundingsDTO {
 
-    private static final long serialVersionUID = 1800900843909976847L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 10, nullable = false, unique = true)
     private String reference;
 
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 10, nullable = false, unique = true)
     private Float amount;
 
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 25, nullable = false)
     private String currency;
 
-    @NotNull(message = "{error.commons.required}")
-    @Column(length = 10, nullable = false, unique = true)
     private int duration;
 
-    @NotNull(message = "{error.commons.required}")
-    @Column(nullable = false, unique = true)
     private Date fundingDateWished;
 
-    @NotNull(message = "{error.commons.required}")
-    @ManyToOne
-    @JoinColumn(nullable = false)
     private FundingsType fundingsType;
 
-    @NotNull(message = "{error.commons.required}")
-    @Column(nullable = false, unique = true)
     private Date requestDate;
 
-    @NotNull(message = "{error.commons.required}")
-    @Column(nullable = false)
-    private Float fundingPerformance;
+    private float fundingPerformance;
 
-    public Fundings() {
-	//
+    public fundingsDTO() {
+    }
+
+    public fundingsDTO(Long id, String reference, Float amount, String currency,
+	    int duration, Date fundingDateWished, FundingsType fundingsType,
+	    Date requestDate, float fundingPerformance) {
+	setId(id);
+	setReference(reference);
+	setAmount(amount);
+	setCurrency(currency);
+	setDuration(duration);
+	setFundingDateWished(fundingDateWished);
+	setFundingsType(fundingsType);
+	setRequestDate(requestDate);
+	setFundingPerformance(fundingPerformance);
     }
 
     /**
@@ -174,7 +164,7 @@ public class Fundings implements Serializable {
     /**
      * @return the fundingPerformance
      */
-    public Float getFundingPerformance() {
+    public float getFundingPerformance() {
 	return fundingPerformance;
     }
 
@@ -182,27 +172,7 @@ public class Fundings implements Serializable {
      * @param fundingPerformance
      *            the fundingPerformance to set
      */
-    public void setFundingPerformance(Float fundingPerformance) {
+    public void setFundingPerformance(float fundingPerformance) {
 	this.fundingPerformance = fundingPerformance;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-	return serialVersionUID;
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-	return "Fundings [id=" + id + ", reference=" + reference + ", amount="
-		+ amount + ", currency=" + currency + ", duration=" + duration
-		+ ", fundingDateWished=" + fundingDateWished + ", fundingsType="
-		+ fundingsType + ", requestDate=" + requestDate
-		+ ", fundingPerformance=" + fundingPerformance + "]";
     }
 }

@@ -40,7 +40,7 @@ public class FundingsService implements IFundingsService {
     @Override
     public boolean validateRef(Fundings fundings) {
 	Long id = fundings.getId();
-	String ref = fundings.getRef();
+	String ref = fundings.getReference();
 	if (null == id) { // create
 	    return !fundingJpaRepository.existsByRefIgnoreCase(ref);
 	}
