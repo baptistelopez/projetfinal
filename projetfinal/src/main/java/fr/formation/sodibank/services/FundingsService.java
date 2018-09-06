@@ -1,6 +1,6 @@
 package fr.formation.sodibank.services;
 
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,14 +15,14 @@ import fr.formation.sodibank.repositories.IFundingJpaRepository;
 public class FundingsService implements IFundingsService {
     //
 
-    private final IFundingsService fundingRepository;
+    private final IFundingsService fundingsService;
 
     private final IFundingJpaRepository fundingJpaRepository;
 
     @Autowired
-    protected FundingsService(IFundingsService fundingRepository,
+    protected FundingsService(IFundingsService fundingsService,
 	    IFundingJpaRepository fundingJpaRepository) {
-	this.fundingRepository = fundingRepository;
+	this.fundingsService = fundingsService;
 	this.fundingJpaRepository = fundingJpaRepository;
     }
 
@@ -35,5 +35,23 @@ public class FundingsService implements IFundingsService {
     @Override
     public void save(Fundings fundings) {
 	fundingJpaRepository.save(fundings);
+    }
+
+    @Override
+    public boolean validateRef(Fundings fundings) {
+	Long id = fundings.getId();
+	String ref = fundings.getRef();
+	if (null == id) { // create
+	    return !fundingJpaRepository.existsByRefIgnoreCase(ref);
+	}
+	return !fundingJpaRepository.existsByRefIgnoreCaseAndIdNot(ref, id); // update
+    }
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Fundings> findAll() {
+	return fundingJpaRepository.findAll();
     }
 }
