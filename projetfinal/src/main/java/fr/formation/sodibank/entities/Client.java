@@ -31,11 +31,6 @@ public class Client {
     @NotNull(message = "{error.commons.required}")
     private Raiting raiting;
 
-    @OneToOne
-    @NotNull(message = "{error.commons.required}")
-    @JoinColumn(nullable = false)
-    private User user;
-
     public Client() {
 	//
     }
@@ -86,17 +81,6 @@ public class Client {
 
     public void setId(Long id) {
 	this.id = id;
-    }
-
-    /**
-     * @return the user
-     */
-    public User getUser() {
-	return user;
-    }
-
-    public void setUser(User user) {
-	this.user = user;
     }
 
     @Override
