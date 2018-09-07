@@ -52,7 +52,7 @@ public class User implements Serializable {
     @Column(length = 1, nullable = false)
     public boolean enabled = true;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
     private List<Client> clients;
 
