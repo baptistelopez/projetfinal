@@ -1,5 +1,7 @@
 package fr.formation.sodibank.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import fr.formation.sodibank.entities.Fundings;
@@ -38,4 +40,16 @@ public class FundingsService implements IFundingsService {
      * @Override public void save(Fundings fundings) {
      * fundingJpaRepository.save(fundings); }
      */
+
+    @Override
+    public boolean validateRef(Fundings fundings) {
+	// TODO Auto-generated method stub
+	return false;
+    }
+
+    @Override
+    public List<Fundings> findAll() {
+	// TODO Auto-generated method stub
+	return null;
+    }
 }

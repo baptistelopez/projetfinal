@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ImportResource("classpath:*-context.xml")
 @ComponentScan(basePackages = { "fr.formation.sodibank.repositories",
-	"fr.formation.sodibank.services" })
+	"fr.formation.sodibank.services", "fr.formation.sodibank.dto" })
 @EnableJpaRepositories("fr.formation.sodibank.repositories")
 @EnableTransactionManagement
 public class AppConfig {

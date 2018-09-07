@@ -2,29 +2,28 @@ package fr.formation.sodibank.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mysql.fabric.xmlrpc.Client;
-
-import fr.formation.AppLanguage;
+import fr.formation.sodibank.entities.Client;
+import fr.formation.sodibank.repositories.*;
 
 @Service
 public class BankerService implements IBankerService {
 
-    @Override
-    public Client findById(Long id) {
-	// TODO Auto-generated method stub
-	return null;
+    private final IBankerRepository bankerRepository;
+
+    private final IBankerJpaRepository BankerJpaRepository;
+
+    @Autowired
+    protected BankerService(IBankerRepository bankerRepository,
+	    IBankerJpaRepository BankerJpaRepository) {
+	this.bankerRepository = bankerRepository;
+	this.BankerJpaRepository = BankerJpaRepository;
     }
 
     @Override
-    public List<Client> findAllAsDTO(AppLanguage lang) {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    @Override
-    public void deleteById(Long id) {
-	// TODO Auto-generated method stub
+    public List<Client> findClientByBankerInterserial() {
+	return bankerRepository.findClientByBankerInterserial();
     }
 }

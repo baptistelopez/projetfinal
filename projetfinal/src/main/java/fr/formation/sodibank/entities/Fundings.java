@@ -22,8 +22,9 @@ public class Fundings implements Serializable {
     @Column(length = 10, nullable = false, unique = true)
     private Double amount;
 
+    @ManyToOne
     @NotNull(message = "{error.commons.required}")
-    @Column(length = 25, nullable = false)
+    @JoinColumn(nullable = false)
     private Devise currency;
 
     @NotNull(message = "{error.commons.required}")
@@ -47,8 +48,9 @@ public class Fundings implements Serializable {
     @Column(nullable = false)
     private Double fundingPerformance;
 
+    @ManyToOne
     @NotNull(message = "{error.commons.required}")
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Client customerCode;
 
     public Fundings() {
