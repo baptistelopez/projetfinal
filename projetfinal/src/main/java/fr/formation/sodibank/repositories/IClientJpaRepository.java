@@ -11,7 +11,5 @@ import fr.formation.sodibank.entities.Client;
  * @author Administrateur
  */
 public interface IClientJpaRepository extends JpaRepository<Client, Long> {
-
-    public boolean existsByCodeIgnoreCaseAndIdNot(String code, Long id);
     //
 }

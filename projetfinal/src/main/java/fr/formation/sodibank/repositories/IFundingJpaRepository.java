@@ -6,8 +6,9 @@ import fr.formation.sodibank.entities.Fundings;
 
 public interface IFundingJpaRepository extends JpaRepository<Fundings, Long> {
 
-    public boolean existsByRefIgnoreCase(String ref);
+    public boolean existsByReferenceIgnoreCase(String reference);
     //
 
-    public boolean existsByRefIgnoreCaseAndIdNot(String ref, Long id);
+    public boolean existsByReferenceIgnoreCaseAndIdNot(String reference,
+	    Long id);
 }

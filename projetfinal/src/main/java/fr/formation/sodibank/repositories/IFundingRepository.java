@@ -2,11 +2,9 @@ package fr.formation.sodibank.repositories;
 
 import java.util.List;
 
-import fr.formation.AppLanguage;
-import fr.formation.sodibank.dto.fundingsDTO;
+import fr.formation.sodibank.entities.Fundings;
 
 public interface IFundingRepository {
 
-    public List<fundingsDTO> findAllAsDTO(AppLanguage lang);
-    //
+    public List<Fundings> findFundingsByUserId(Long id);
 }

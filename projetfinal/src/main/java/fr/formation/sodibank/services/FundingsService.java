@@ -2,9 +2,11 @@ package fr.formation.sodibank.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.formation.sodibank.entities.Fundings;
+import fr.formation.sodibank.repositories.*;
 
 /**
  * @author Administrateur
@@ -12,44 +14,41 @@ import fr.formation.sodibank.entities.Fundings;
 @Service
 public class FundingsService implements IFundingsService {
 
+    private final IFundingRepository fundingsRepository;
+
+    private final IFundingJpaRepository fundingsJpaRepository;
+
+    @Autowired
+    protected FundingsService(IFundingRepository fundingsRepository,
+	    IFundingJpaRepository fundingsJpaRepository) {
+	this.fundingsRepository = fundingsRepository;
+	this.fundingsJpaRepository = fundingsJpaRepository;
+    }
+
     /**
      * @param fundings
      */
     @Override
     public void save(Fundings fundings) {
-	throw new UnsupportedOperationException("not yet implemented");
-    }
-
-    /**
-     * @param id
-     * @return
-     */
-    @Override
-    public Fundings findById(Long id) {
-	throw new UnsupportedOperationException("not yet implemented");
-    }
-    //
-    /*
-     * // private final IFundingsService fundingRepository; private final
-     * IFundingJpaRepository fundingJpaRepository;
-     * @Autowired protected FundingsService(IFundingsService fundingRepository,
-     * IFundingJpaRepository fundingJpaRepository) { // this.fundingRepository =
-     * fundingRepository; this.fundingJpaRepository = fundingJpaRepository; }
-     * @Override public Fundings findById(Long id) { Optional<Fundings> optional
-     * = fundingJpaRepository.findById(id); return optional.get(); }
-     * @Override public void save(Fundings fundings) {
-     * fundingJpaRepository.save(fundings); }
-     */
-
-    @Override
-    public boolean validateRef(Fundings fundings) {
-	// TODO Auto-generated method stub
-	return false;
+	fundingsJpaRepository.save(fundings);
     }
 
     @Override
-    public List<Fundings> findAll() {
-	// TODO Auto-generated method stub
-	return null;
+    public boolean validateReference(Fundings fundings) {
+	Long id = fundings.getId();
+	String reference = fundings.getReference();
+	if (null == id) { // create
+	    return !fundingsJpaRepository
+		    .existsByReferenceIgnoreCase(reference);
+	}
+	return !fundingsJpaRepository
+		.existsByReferenceIgnoreCaseAndIdNot(reference, id); // update
+    }
+
+    // ****************************************************************
+    // lister les financements des clients
+    @Override
+    public List<Fundings> findFundingsByUserId(Long id) {
+	return fundingsRepository.findFundingsByUserId(id);
     }
 }

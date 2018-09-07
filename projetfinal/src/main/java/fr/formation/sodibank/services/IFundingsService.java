@@ -11,10 +11,13 @@ public interface IFundingsService {
 
     public void save(Fundings fundings);
     //
+    // public Fundings findById(Long id);
+    //
+    // public boolean validateRef(Fundings fundings);
+    //
+    // public List<Fundings> findAll();
 
-    public Fundings findById(Long id);
+    public boolean validateReference(Fundings fundings);
 
-    public boolean validateRef(Fundings fundings);
-
-    public List<Fundings> findAll();
+    public List<Fundings> findFundingsByUserId(Long id);
 }
